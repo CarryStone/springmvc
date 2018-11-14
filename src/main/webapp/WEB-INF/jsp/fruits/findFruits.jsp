@@ -12,6 +12,11 @@
 名称：<input type="text" name="name"/>&nbsp;&nbsp;
 产地：<input type="text" name="producing_area"/>
 <input type="submit" value="搜索"/>
+<c:if test="${allErrors!=null}">
+   <c:forEach items="${allErrors}" var="errors">
+     <font color="red">${errors.defaultMessage }</font>
+   </c:forEach>
+</c:if>
 </form>
 <hr/>
 <h3>搜索结果</h3>

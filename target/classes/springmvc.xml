@@ -35,8 +35,22 @@
    <property name="templateLoaderPath"  value="/WEB-INF/freemarker/template"></property>
  </bean>
  
- <!-- <bean name="/queryFruits_test.action" class="controller.FruitsControllerTest"></bean> -->
+ <!-- 校验器，配置validator -->
+ <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+   <property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
+   <property name="validationMessageSource" ref="validationMessageSource"></property>
+ </bean>
  
+ <bean id="validationMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basenames">
+       <list>
+          <value>classpath:validationMessageSource</value>
+       </list>
+    </property>
+    <property name="fileEncodings" value="utf-8"></property>
+    <property name="cacheSeconds" value="120"></property>
+ </bean>
+  
  <!-- <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
  <property name="mappings">
  <props>
@@ -49,7 +63,7 @@
  <bean id="fruitsController1" class="controller.FruitsControllerTest1"/> -->
  
  <!-- 配置注解的映射器和适配器 -->
- <mvc:annotation-driven></mvc:annotation-driven>
+ <mvc:annotation-driven validator="validator"></mvc:annotation-driven>
 <!-- 扫描包 -->
  <context:component-scan base-package="controller"></context:component-scan>
 </beans>
