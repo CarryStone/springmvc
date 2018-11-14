@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Fruits;
@@ -18,9 +20,9 @@ public class FruitsControllerTest {
 	
 	FruitsService service = new FruitsService();
 
-	@RequestMapping("/queryFruits_test")
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+	@RequestMapping(value="/queryFruits_test",method=RequestMethod.GET)
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response,@RequestParam(value="id",defaultValue="1") int fruitid) throws Exception {
+		System.out.println("fruitid:"+fruitid);
 		List<Fruits> fruitsList = service.getFruitsList();
 		//·µ»ØModelAndView
 		ModelAndView mav = new ModelAndView();

@@ -19,7 +19,7 @@
  <!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean> -->
  <!-- 视图解析器InternalResourceViewResolver -->
  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-  <property name="prefix" value="/WEB-INF/jsp/"></property>
+  <property name="prefix" value="/WEB-INF/jsp/fruits/"></property>
   <property name="suffix" value=".jsp"></property>
  </bean>  
  
