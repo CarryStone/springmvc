@@ -19,7 +19,7 @@
  <!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean> -->
  <!-- 视图解析器InternalResourceViewResolver -->
  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-  <property name="prefix" value="/WEB-INF/jsp/fruits/"></property>
+  <property name="prefix" value="/WEB-INF/jsp"></property>
   <property name="suffix" value=".jsp"></property>
  </bean>  
  
@@ -66,5 +66,14 @@
  <mvc:annotation-driven validator="validator"></mvc:annotation-driven>
 <!-- 扫描包 -->
  <context:component-scan base-package="controller"></context:component-scan>
+ <!-- 全局异常处理器 -->
+ <bean class="exception.UserExceptionResolver"></bean>
+ <!-- 全局拦截器 -->
+ <mvc:interceptors>
+  <mvc:interceptor>
+    <mvc:mapping path="/**"/>
+    <bean class="interceptor.LoginInterceptor"></bean>
+  </mvc:interceptor>
+ </mvc:interceptors>
 </beans>
 

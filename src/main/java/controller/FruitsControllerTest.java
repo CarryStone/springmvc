@@ -28,7 +28,7 @@ public class FruitsControllerTest {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("fruitsList", fruitsList);
 		//÷∏∂® ”Õº
-		mav.setViewName("fruitsList");
+		mav.setViewName("/fruits/fruitsList");
 		return mav;
 	}
 	

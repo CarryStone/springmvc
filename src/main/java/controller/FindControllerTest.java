@@ -39,6 +39,6 @@ public class FindControllerTest {
 
 		model.addAttribute("fruitsList", fruitsList);
 		model.addAttribute("allErrors",allErrors);
-		return "findFruits";
+		return "/fruits/findFruits";
 	}
 }

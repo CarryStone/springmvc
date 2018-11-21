@@ -34,5 +34,6 @@
 </tr>
 </c:forEach>
 </table>
+<a href="loginout.action">注销</a>
 </body>
 </html>
